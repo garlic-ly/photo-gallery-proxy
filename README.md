@@ -1,6 +1,6 @@
 # Project Name
 
-> Project description
+> Project description - testing whether PR requires approval
 
 ## Related Projects
 
