@@ -5,7 +5,6 @@ const axios = require('axios');
 
 const app = express();
 const port = 3000;
-// const controllers = require('./controllers.js');
 
 app.use('/rooms/:id', express.static(path.join(__dirname, '../public')));
 
@@ -41,7 +40,7 @@ app.get('/api/calendar/:roomId', (req, res) => {
 	  });
 });
 
-app.get('/api/rooms/:id/reviews', (req, res) => {
+app.get('/api/reviews/:id/reviews', (req, res) => {
   const { id } = req.params;
   axios({
     method: 'get',
@@ -55,7 +54,7 @@ app.get('/api/rooms/:id/reviews', (req, res) => {
     });
 });
 
-app.get('/api/rooms/:id/ratings', (req, res) => {
+app.get('/api/reviews/:id/ratings', (req, res) => {
   const { id } = req.params;
   axios({
     method: "get",
