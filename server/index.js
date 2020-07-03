@@ -10,7 +10,7 @@ app.use('/rooms/:id', express.static(path.join(__dirname, '../public')));
 
 app.listen(port, () => console.log(`The app listening at http://localhost:${port}`));
 
-// app.use(bodyParser.json());
+app.use(bodyParser.json());
 
 app.get('/api/photos/:id', (req, res) => {
   const { id } = req.params;
@@ -19,7 +19,6 @@ app.get('/api/photos/:id', (req, res) => {
     url:`http://localhost:3002/api/photos/${id}`,
   })
     .then((response) => {
-      // console.log(response);
       res.status(200).send(response.data);})
     .catch((err) => {
       res.status(400).send(err);
@@ -78,7 +77,7 @@ app.patch('/api/photos/:id', (req, res) => {
   axios({
     method: "patch",
     url:`http://localhost:3002/api/photos/${id}`,
-    data: isFavorite,
+    data: {'isFavorite': isFavorite},
   })
     .then((response) =>
       {res.status(200).send(response.data);}
