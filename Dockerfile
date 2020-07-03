@@ -10,4 +10,4 @@ RUN yarn install
 
 EXPOSE 3000
 
-CMD ["npm", "run", "server-dev"]doc
+CMD ["npm", "run", "server-dev"]
